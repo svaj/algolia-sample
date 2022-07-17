@@ -17,8 +17,8 @@ jobs:
       run: |
         yarn install
         yarn build
-    - name: deploy dist to gh-pages
-      run: |
-        git config --global user.name 'Chris Svajlenka'
-        git config --global user.email 'chris@svajlenka.com'
-        git push origin `git subtree split --prefix dist main`:gh-pages --force
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
