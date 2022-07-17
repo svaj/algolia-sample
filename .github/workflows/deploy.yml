@@ -1,0 +1,21 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+    - name: deploy dist to gh-pages
+      run: |
+        git config --global user.name 'Chris Svajlenka'
+        git config --global user.email 'chris@svajlenka.com'
+        git push origin `git subtree split --prefix dist master`:gh-pages --force

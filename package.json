@@ -5,9 +5,23 @@
   "author": "chris@svajlenka.com",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "index": "node indexer.js",
+    "start": "parcel index.html --port 3000",
+    "build": "parcel build index.html",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write ."
+  },
   "devDependencies": {
     "algoliasearch": "^4.10.5",
     "dotenv": "^10.0.0",
+    "eslint": "8.15.0",
+    "parcel": "2.0.1",
+    "prettier": "2.6.2",
     "stream-json": "^1.7.4"
+  },
+  "dependencies": {
+    "algoliasearch": "4",
+    "instantsearch.js": "4.43.1"
   }
 }
