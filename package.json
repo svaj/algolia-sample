@@ -1,0 +1,13 @@
+{
+  "name": "sample-algolia",
+  "version": "0.0.1",
+  "description": "Sample Algolia Project",
+  "author": "chris@svajlenka.com",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "algoliasearch": "^4.10.5",
+    "dotenv": "^10.0.0",
+    "stream-json": "^1.7.4"
+  }
+}
