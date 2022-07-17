@@ -50,8 +50,29 @@ const main = async () => {
         // Initialize an index
         const index = algoliaClient.initIndex(ALGOLIA_INDEX_NAME);
 
+        // index objects from file
         await streamObjectsFromFile(index, DATASET_FILE);
 
+        // set index settings for search (facets, filters, searchable attributes, etc)
+        await index.setSettings({
+            searchableAttributes: [
+             'brand',
+             'categories',
+             'type',
+             'unordered(description)'
+           ],
+           ranking: [
+            'desc(popularity)',
+            'desc(rating)',
+            'desc(price)',
+           ],
+           attributesForFaceting: [
+             'searchable(brand)',
+             'searchable(categories)',
+             'price',
+             'free_shipping'
+           ]
+         })
     }
     catch (err) {
         console.error(err);
