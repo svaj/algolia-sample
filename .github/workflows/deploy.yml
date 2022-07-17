@@ -15,8 +15,8 @@ jobs:
         node-version: 18
     - name: Install dependencies and build
       run: |
-        npm ci
-        npm run build
+        yarn install
+        yarn build
     - name: deploy dist to gh-pages
       run: |
         git config --global user.name 'Chris Svajlenka'
