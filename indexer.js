@@ -19,6 +19,7 @@ const streamObjectsFromFile = (algoliaIndex, datasetFile) => {
         jsonStream.on('data', async ({ key, value }) => {
             console.debug("Saving object to index... ", { key, value });
             try {
+                // TODO: set up rate-limiting / exponential back-off to avoid hitting any rate limits from Algolia
                 await algoliaIndex.saveObject(value).wait();
             } catch (err) {
                 console.error("Error while saving object to index", err);
@@ -71,7 +72,14 @@ const main = async () => {
              'searchable(categories)',
              'price',
              'free_shipping'
-           ]
+           ],
+           renderingContent: {
+            facetOrdering: {
+              facets: {
+                order: ['brand', 'categories'],
+              },
+            },
+          },
          })
     }
     catch (err) {
