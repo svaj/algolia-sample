@@ -5,4 +5,3 @@ window.config = {
     ALGOLIA_API_KEY: process.env.ALGOLIA_API_KEY,
     ALGOLIA_INDEX_NAME: process.env.ALGOLIA_INDEX_NAME,
 }
-console.info("window.config", window.config)

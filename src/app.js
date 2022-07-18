@@ -1,7 +1,6 @@
 const { algoliasearch, instantsearch, config } = window;
 const { ALGOLIA_APP_ID, ALGOLIA_API_KEY, ALGOLIA_INDEX_NAME } = config;
 
-console.info("config", config)
 const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
 
 const search = instantsearch({
