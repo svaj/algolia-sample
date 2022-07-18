@@ -8,7 +8,7 @@
   "scripts": {
     "index": "node indexer.js",
     "start": "parcel index.html --port 3000",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --no-optimize --public-url https://svaj.github.io/algolia-sample/",
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint . --fix && prettier --write ."
   },
