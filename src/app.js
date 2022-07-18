@@ -1,9 +1,11 @@
-const { algoliasearch, instantsearch } = window;
+const { algoliasearch, instantsearch, config } = window;
+const { ALGOLIA_APP_ID, ALGOLIA_API_KEY, ALGOLIA_INDEX_NAME } = config;
 
-const searchClient = algoliasearch('INO7S66H6Z', 'c11211acd99febacd67fdddf9bf215a0');
+console.info("config", config)
+const searchClient = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
 
 const search = instantsearch({
-  indexName: 'bestbuy',
+  indexName: ALGOLIA_INDEX_NAME,
   searchClient,
 });
 
@@ -12,7 +14,7 @@ search.addWidgets([
     container: '#searchbox',
     placeholder: 'Search for a product',
     autofocus: true,
-    
+
   }),
   	
 
